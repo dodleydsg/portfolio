@@ -1,0 +1,30 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Project for developing porfolio website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dodleydsg/portfolio.git"
+  },
+  "keywords": [
+    "Porfolio",
+    "website",
+    "personal",
+    "project",
+    "html",
+    "css",
+    "tailwind",
+    "js",
+    "particles"
+  ],
+  "author": "Dodley Andu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dodleydsg/portfolio/issues"
+  },
+  "homepage": "https://github.com/dodleydsg/portfolio#readme"
+}
