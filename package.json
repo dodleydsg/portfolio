@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/dodleydsg/portfolio/issues"
   },
-  "homepage": "https://github.com/dodleydsg/portfolio#readme"
+  "homepage": "https://github.com/dodleydsg/portfolio#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
 }

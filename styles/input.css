@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&family=JetBrains+Mono:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
+
+@layer components {
+  body {
+    @apply font-sans;
+  }
+}
