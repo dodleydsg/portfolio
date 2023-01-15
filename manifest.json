@@ -1,7 +1,7 @@
 {
   "name": "Dodley's Porfolio",
   "short_name": "DodleyPorfolio",
-  "start_url": "standalone",
+  "start_url": "/index.html",
   "background_color": "#5C6BC0",
   "theme_color": "#5C6BC0",
   "display": "standalone",
