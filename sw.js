@@ -1,9 +1,11 @@
-const cacheName = "shell-cache-v1";
+const cacheName = "shell-cache";
+const dynamicCache = "dynamic-cache";
 const assets = [
   "/",
   "/styles/output.css",
   "/scripts/particle.js",
   "index.html",
+  "404.html",
   "/assets/images/css.svg",
   "/assets/images/django.svg",
   "/assets/images/figma.svg",
@@ -36,15 +38,39 @@ self.addEventListener("install", (evt) => {
 });
 
 self.addEventListener("activate", (evt) => {
-  console.log("Service worker activated");
+  evt.waitUntil(
+    caches.keys().then((keys) => {
+      console.log(keys, "");
+      return Promise.all(
+        keys
+          .filter((key) => key !== cacheName && key !== dynamicCache)
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
 });
 
 //fetch events
 
 self.addEventListener("fetch", (evt) => {
   evt.respondWith(
-    caches.match(evt.request).then((cacheRes) => {
-      return cacheRes || fetch(evt.request);
-    })
+    caches
+      .match(evt.request)
+      .then((cacheRes) => {
+        return (
+          cacheRes ||
+          fetch(evt.request).then((fetchRes) => {
+            return caches.open(dynamicCache).then((cache) => {
+              cache.put(evt.request.url, fetchRes.clone());
+              return fetchRes;
+            });
+          })
+        );
+      })
+      .catch(() => {
+        if (evt.request.url.indexOf(".html") > -1) {
+          return caches.match("404.html");
+        }
+      })
   );
 });
